@@ -1,11 +1,9 @@
 const Blogs = require("../models/blogs");
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3();
 
 const createBlog = async (req, res) => {
   const { title, content } = req.body;
   const image = req.file.filename;
-  const newBlog = new s3.Blogs({
+  const newBlog = new Blogs({
     title: title,
     content: content,
     image: image,
