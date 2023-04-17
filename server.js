@@ -11,8 +11,9 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://bloggy-client.vercel.app/",
+    origin: "*",
     exposedHeaders: ["Content-Length", "X-Foo", "X-Bar"],
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 app.use(express.static("upload/images"));
