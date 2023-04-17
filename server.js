@@ -9,7 +9,12 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://bloggy-client.vercel.app/",
+    exposedHeaders: ["Content-Length", "X-Foo", "X-Bar"],
+  })
+);
 app.use(express.static("upload/images"));
 
 app.use("/api/bloggy", router);
