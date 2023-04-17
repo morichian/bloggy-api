@@ -4,6 +4,7 @@ require("dotenv").config();
 const connectDB = require("./databases/db");
 const router = require("./routes/blog-routes");
 
+
 const app = express();
 
 connectDB();
