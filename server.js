@@ -9,13 +9,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*",
-    exposedHeaders: ["Content-Length", "X-Foo", "X-Bar"],
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-  })
-);
+app.use(cors());
 app.use(express.static("upload/images"));
 
 app.use("/api/bloggy", router);
