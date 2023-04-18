@@ -4,7 +4,6 @@ require("dotenv").config();
 const connectDB = require("./databases/db");
 const router = require("./routes/blog-routes");
 
-
 const app = express();
 
 connectDB();
@@ -13,8 +12,6 @@ app.use(express.json());
 app.use(
   cors({
     origin: "*",
-    exposedHeaders: ["Content-Length", "X-Foo", "X-Bar"],
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 app.use(express.static("upload/images"));
