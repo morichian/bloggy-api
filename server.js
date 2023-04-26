@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./databases/db");
-const router = require("./routes/blog-routes");
+const BlogRouter = require("./routes/blog-routes");
+const userRouter = require("./routes/user-routes");
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("upload/images"));
 
-app.use("/api/bloggy", router);
+app.use("/api/bloggy", BlogRouter);
+app.use("/api/users", userRouter);
 
 const PORT = process.env.PORT || 5000;
 
